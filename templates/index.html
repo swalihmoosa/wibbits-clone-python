@@ -73,63 +73,27 @@
             </section>
         </section>
         <section id="fearures">
+            {% for feature in features %}
             <section class="feature">
                 <section class="wrapper flex-wrapper">
                     <div class="img_container">
-                        <img src="{% static 'images/HS.png' %}" alt="" />
+                        <img src="{{feature.image.url}}" alt="" />
                     </div>
                     <div class="content">
-                        <div class="icon"><img src="{% static 'images/edit-white.svg' %}" alt="" /></div>
-                        <h3>Match everything to your brand and style</h3>
-                        <p>Add logo watermarks, custom video intros, text overlay styles, a full-spectrum color palette, and upload your brand fonts.</p>
+                        <div class="icon" style="background: {{feature.icon_background}};"><img src="{{feature.icon.url}}" alt="" /></div>
+                        <h3>{{feature.title}}</h3>
+                        <p>{{feature.description}}</p>
                         <a href="{% static '#' %}" class="button">Get a Demo</a>
                         <div class="review">
                             <hr class="dash" />
-                            <blockquote>"Being able to crank out videos consistently, localize them for different regions, and still save resources, time, and energy has been a game changer."</blockquote>
-                            <span><small>Charlie Reiff,</small> Social Video Editor & Animator</span>
-                            <img src="{% static 'images/logo-hubspot.svg' %}" alt="" />
+                            <blockquote>"{{feature.testimonial_description}}"</blockquote>
+                            <span><small>{{feature.testimonial_author}},</small> {{feature.author_designation}}</span>
+                            <img src="{{feature.testimonial_logo.url}}" alt="" />
                         </div>
                     </div>
                 </section>
             </section>
-            <section class="feature">
-                <section class="wrapper flex-wrapper">
-                    <div class="img_container">
-                        <img src="{% static 'images/HS.png' %}" alt="" />
-                    </div>
-                    <div class="content">
-                        <div class="icon" style="background:#' %}ffc837;"><img src="{% static 'images/lightning-white.svg' %}" alt="" /></div>
-                        <h3>Match everything to your brand and style</h3>
-                        <p>Add logo watermarks, custom video intros, text overlay styles, a full-spectrum color palette, and upload your brand fonts.</p>
-                        <a href="{% static '#' %}" class="button">Get a Demo</a>
-                        <div class="review">
-                            <hr class="dash" />
-                            <blockquote>"Being able to crank out videos consistently, localize them for different regions, and still save resources, time, and energy has been a game changer."</blockquote>
-                            <span><small>Charlie Reiff,</small> Social Video Editor & Animator</span>
-                            <img src="{% static 'images/USA-Today-logo_24.svg' %}" alt="" />
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <section class="feature">
-                <section class="wrapper flex-wrapper">
-                    <div class="img_container">
-                        <img src="{% static 'images/HS.png' %}" alt="" />
-                    </div>
-                    <div class="content">
-                        <div class="icon" style="background:#' %}3cd278;"><img src="{% static 'images/film-white.svg' %}" alt="" /></div>
-                        <h3>Speed up video production time</h3>
-                        <p>React to breaking news and trending topics on every platform with one-click resizing to landscape, square, and vertical format.</p>
-                        <a href="{% static '#' %}" class="button">Get a Demo</a>
-                        <div class="review">
-                            <hr class="dash" />
-                            <blockquote>"Wibbitz allows us to quickly create templates to share similar videos across multiple sites. A team of three people created videos analyzing several hundred NFL draft picks in just a few hours."</blockquote>
-                            <span><small>Chris Pirrone,</small> General Manager, Sports Media Group</span>
-                            <img src="{% static 'images/IHMe55.svg' %}" alt="" />
-                        </div>
-                    </div>
-                </section>
-            </section>
+            {% endfor %}
         </section>
         <section id="reviews">
             <section class="wrapper">

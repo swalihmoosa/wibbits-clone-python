@@ -102,39 +102,19 @@
                 </section>
                 <section class="bottom">
                     <ul>
+                        {% for review in reviews %}
                         <li>
-                            <div class="top">
+                            <div class="top" style="background-image: url({{review.image.url}});">
                                 <span class="play">
-                                    <img src="{% static 'images/play.svg' %}" alt="" />
+                                    <img src="{{review.play.url}}" alt="" />
                                 </span>
                                 <div class="logo">
-                                    <img src="{% static 'images/logo-brand-nbc2.svg' %}" alt="" />
+                                    <img src="{{review.logo.url}}" alt="" />
                                 </div>
                             </div>
-                            <h4>How NBC enhances their content offering with custom video automation</h4>
+                            <h4>{{review.title}}</h4>
                         </li>
-                        <li>
-                            <div class="top">
-                                <span class="play">
-                                    <img src="{% static 'images/play.svg' %}" alt="" />
-                                </span>
-                                <div class="logo">
-                                    <img src="{% static 'images/hubspot-1.svg' %}" alt="" />
-                                </div>
-                            </div>
-                            <h4>How HubSpot showcases business trends through video</h4>
-                        </li>
-                        <li>
-                            <div class="top">
-                                <span class="play">
-                                    <img src="{% static 'images/play.svg' %}" alt="" />
-                                </span>
-                                <div class="logo">
-                                    <img src="{% static 'images/HousingWi.svg' %}" alt="" />
-                                </div>
-                            </div>
-                            <h4>How HousingWire uses Wibbitz to highlight housing market and real estate news</h4>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </section>
             </section>

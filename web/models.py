@@ -29,3 +29,14 @@ class Feature(models.Model):
 
     def __str__(self):
         return self.testimonial_author
+
+
+class Review(models.Model):
+    title = models.CharField(max_length=155)
+    image = models.FileField(upload_to="reviews")
+    play = models.FileField(upload_to="reviews")
+    logo = models.FileField(upload_to="reviews/logo")
+
+    def __str__(self):
+        return str(self.id)
+

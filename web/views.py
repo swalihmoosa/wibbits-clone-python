@@ -2,16 +2,18 @@ import json
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
-from web.models import Feature, Subscribe, Customers
+from web.models import Feature, Review, Subscribe, Customers
 
 
 def index(request):
     customers = Customers.objects.all()
     features = Feature.objects.all()
+    reviews = Review.objects.all()
 
     context = {
         "customers" : customers,
-        "features" : features
+        "features" : features,
+        "reviews" : reviews
     }
     
     return render(request,"index.html",context=context)

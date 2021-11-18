@@ -57,3 +57,16 @@ class Testimonial(models.Model):
     class Meta:
         ordering = ["id"]
 
+
+class Marketing(models.Model):
+    image = models.FileField(upload_to="marketing")
+    title = models.CharField(max_length=155)
+    description = models.TextField(max_length=255)
+
+    def __str__(self):
+        return str(self.title)
+
+    class Meta:
+        ordering = ["id"]
+    
+

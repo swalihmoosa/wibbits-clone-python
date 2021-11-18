@@ -152,54 +152,16 @@
                 </section>
                 <section class="content">
                     <ul>
+                        {% for marketing in marketings %}
                         <li>
                             <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
+                                <a href="{% static '#' %}" class="img_container"><img src="{{marketing.image.url}}" alt="" /></a>
+                                <h3><a href="{% static '#' %}">{{marketing.title}}</a></h3>
+                                <p>{{marketing.description}}</p>
                                 <a href="{% static '#' %}" class="button">Learn More</a>
                             </div>
                         </li>
-                        <li>
-                            <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
-                                <a href="{% static '#' %}" class="button">Learn More</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
-                                <a href="{% static '#' %}" class="button">Learn More</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
-                                <a href="{% static '#' %}" class="button">Learn More</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
-                                <a href="{% static '#' %}" class="button">Learn More</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <a href="{% static '#' %}" class="img_container"><img src="{% static 'images/usecase-illustration-marketing.svg' %}" alt="" /></a>
-                                <h3><a href="{% static '#' %}">Marketing</a></h3>
-                                <p>Promote your blog posts, case studies, and product announcements with branded videos.</p>
-                                <a href="{% static '#' %}" class="button">Learn More</a>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </section>
                 <section class="bottom">

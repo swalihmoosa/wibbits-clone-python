@@ -1,3 +1,4 @@
+from os import name
 from django.db import models
 
 
@@ -39,4 +40,20 @@ class Review(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class Testimonial(models.Model):
+    image = models.ImageField(upload_to="testimonials")
+    logo = models.FileField(upload_to="testimonials\logo",blank=True,null=True)
+    description = models.TextField(max_length=255)
+    name = models.CharField(max_length=125)
+    role = models.CharField(max_length=125)
+    company_name = models.CharField(max_length=125)
+    is_featured = models.BooleanField()
+
+    def __str__(self):
+        return str(self.name)
+
+    class Meta:
+        ordering = ["id"]
 

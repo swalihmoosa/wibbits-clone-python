@@ -122,38 +122,24 @@
         <section id="testimonials">
             <section class="wrapper">
                 <ul>
+                    {% for true_testimonial in true_testimonials %}
                     <li>
                         <div class="top">
-                            <img src="{% static 'images/Chase-Kroll-920x760normal-1.png' %}" alt="" class="cover" />
+                            <img src="{{true_testimonial.image.url}}" alt="Image" class="cover" />
                             <div class="logo">
-                                <img src="{% static 'images/Hogan_Lovells_logo_white_bg2.svg' %}" alt="" />
+                                <img src="{{true_testimonial.logo.url}}" alt="Logo" />
                             </div>
                         </div>
                         <div class="bottom">
                             <blockquote>
-                                The versatility of Wibbitz allows us to create video for any kind of digital content—making our team more efficient while scaling production.
+                                {{true_testimonial.description}}
                             </blockquote>
-                            <h6>Chase Kroll</h6>
-                            <span>Managing Director</span>
-                            <small>Strategic Communications</small>
+                            <h6>{{true_testimonial.name}}</h6>
+                            <span>{{true_testimonial.role}}</span>
+                            <small>{{true_testimonial.company_name}}</small>
                         </div>
                     </li>
-                    <li>
-                        <div class="top">
-                            <img src="{% static 'images/Ken-Gibs-920x760normal-1.png' %}" alt="" class="cover" />
-                            <div class="logo">
-                                <img src="{% static 'images/BET_logo_black.svg' %}" alt="" />
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <blockquote>
-                                The videos we can quickly create with Wibbitz help us engage our audiences on social media, who feel more connected to videos than just an image or text post.
-                            </blockquote>
-                            <h6>Ken Gibbs</h6>
-                            <span>Vice President</span>
-                            <small>Digital Video & Social Content</small>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </section>
         </section>
@@ -308,15 +294,14 @@
                         <div class="content">
                             <blockquote>"Wibbitz strengthens the communications strategy at our company by allowing us to produce more videos, faster, while maintaining top level of quality."</blockquote>
                             <h6>Jeff Cucinell</h6>
-                            <span class="role"> Director of Social Strategy, iHeartRadio</span>
+                            <span class="role">Director of Social Strategy, iHeartRadio</span>
                         </div>
                         <ul class="people">
-                            <li class="active">
-                               <img src="{% static 'images/profile1.jpg' %}" alt="" /> 
+                            {% for false_testimonial in false_testimonials %}
+                            <li >
+                               <img src="{{false_testimonial.image.url}}" alt="" /> 
                             </li>
-                            <li><img src="{% static 'images/profile2.jpg' %}" alt="" /></li>
-                            <li><img src="{% static 'images/profile3.jpg' %}" alt="" /></li>
-                            <li><img src="{% static 'images/profile4.jpg' %}" alt="" /></li>
+                            {% endfor %}
                         </ul> 
                     </div>
                     <hr class="line bottom" />

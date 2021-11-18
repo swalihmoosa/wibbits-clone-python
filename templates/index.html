@@ -204,7 +204,7 @@
                     {% for blog in blogs %}
                     <li>
                         <img src="{{blog.image.url}}" alt="" />
-                        <span style="color:#0055fb" class="label">{{blog.content_type}}</span>
+                        <span style="color:#0055fb" class="label">{{blog.get_content_type_display}}</span>
                         <h2>{{blog.title}}</h2>
                         <a href="{% static '#' %}" class="button">{{blog.next}}</a>
                     </li>

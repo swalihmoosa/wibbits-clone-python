@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from web.models import Customers, Feature, Marketing, Review, Subscribe, Testimonial
+from web.models import Customers, Feature, Marketing, Product, Review, Subscribe, Testimonial
 
 
 admin.site.register(Subscribe)
@@ -32,3 +32,9 @@ class MarketingAdmin(admin.ModelAdmin):
     list_display = ["id", "image", "title", "description"]
 
 admin.site.register(Marketing, MarketingAdmin)
+
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ["id", "title", "description", "image", "logo"]
+
+admin.site.register(Product, ProductAdmin)

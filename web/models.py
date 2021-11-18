@@ -70,3 +70,18 @@ class Marketing(models.Model):
         ordering = ["id"]
     
 
+
+class Product(models.Model):
+    image = models.FileField(upload_to="produc")
+    title = models.CharField(max_length=155)
+    logo = models.FileField(upload_to="product/logo")
+    description = models.TextField(max_length=255)
+    bg_color = models.CharField(max_length=10, default="#fff")
+    button_bg_color = models.CharField(max_length=10, default="#fff")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ["id"]
+

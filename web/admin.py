@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from web.models import Customers, Feature, Marketing, Product, Review, Subscribe, Testimonial
+from web.models import Blog, Customers, Feature, Marketing, Product, Review, Subscribe, Testimonial
 
 
 admin.site.register(Subscribe)
@@ -38,3 +38,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "description", "image", "logo"]
 
 admin.site.register(Product, ProductAdmin)
+
+
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ["id", "title", "content_type", "image"]
+
+admin.site.register(Blog, BlogAdmin)

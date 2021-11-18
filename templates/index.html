@@ -201,24 +201,14 @@
                     <h3>Video resources: Insider advice on how to bring your content to life</h3>
                 </section>
                 <ul>
+                    {% for blog in blogs %}
                     <li>
-                        <img src="{% static 'images/Blog-video-attention-span-2.jpg' %}" alt="" />
-                        <span style="color:#' %}0055fb" class="label">Blog Post</span>
-                        <h2>6 best video practices for capturing audiences’ 8-second attention span</h2>
-                        <a href="{% static '#' %}" class="button">Read blog</a>
+                        <img src="{{blog.image.url}}" alt="" />
+                        <span style="color:#0055fb" class="label">{{blog.content_type}}</span>
+                        <h2>{{blog.title}}</h2>
+                        <a href="{% static '#' %}" class="button">{{blog.next}}</a>
                     </li>
-                    <li>
-                        <img src="{% static 'images/Webinar-Ceros-Thumbnail.jpg' %}" alt="" />
-                        <span class="label">Webinar</span>
-                        <h2>Wibbitz + Ceros: Improving content marketing through visual storytelling</h2>
-                        <a href="{% static '#' %}" class="button">Watch webina</a>
-                    </li>
-                    <li>
-                        <img src="{% static 'images/2019-Q3-Instagram-Report-EN-Thumbnail.png' %}" alt="" />
-                        <span class="label">Report</span>
-                        <h2>Explore Instagram Video: How to convert, engage, and get more Instagram followers with video</h2>
-                        <a href="{% static '#' %}" class="button">Get the report</a>
-                    </li>
+                    {% endfor %}
                 </ul>
                 <div class="bottom">
                     <a href="{% static '#' %}" class="button">Explore All Resources</a>

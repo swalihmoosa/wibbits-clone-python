@@ -1,5 +1,6 @@
 from os import name
 from django.db import models
+from django.db.models.base import Model
 
 
 class Subscribe(models.Model):
@@ -72,7 +73,7 @@ class Marketing(models.Model):
 
 
 class Product(models.Model):
-    image = models.FileField(upload_to="produc")
+    image = models.FileField(upload_to="product")
     title = models.CharField(max_length=155)
     logo = models.FileField(upload_to="product/logo")
     description = models.TextField(max_length=255)
@@ -85,3 +86,20 @@ class Product(models.Model):
     class Meta:
         ordering = ["id"]
 
+
+CONTENT_TYPE = (
+    ("blog_post", "Blog Post"),
+    ("webinar", "Webinar"),
+    ("report", "Report")
+) 
+class Blog(models.Model):
+    image = models.FileField(upload_to="blog")
+    title = models.CharField(max_length=155)
+    content_type = models.TextField(max_length=125, choices=CONTENT_TYPE)
+    next = models.CharField(max_length=125, default="Read blog")
+
+    def __str__(self):
+        return self.title
+    
+    class Meta :
+        ordering = ["id"]

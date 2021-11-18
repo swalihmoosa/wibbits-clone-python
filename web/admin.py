@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from web.models import Blog, Customers, Feature, Marketing, Product, Review, Subscribe, Testimonial
+from web.models import Blog, Contact, Customers, Feature, Marketing, Product, Review, Subscribe, Testimonial
 
 
 admin.site.register(Subscribe)
@@ -44,3 +44,9 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "content_type", "image"]
 
 admin.site.register(Blog, BlogAdmin)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ["id", "first_name", "last_name", "company", "jobe_role", "country"]
+
+admin.site.register(Contact, ContactAdmin)

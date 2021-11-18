@@ -3,6 +3,39 @@ from django.db import models
 from django.db.models.base import Model
 
 
+CONTENT_TYPE = (
+    ("blog_post", "Blog Post"),
+    ("webinar", "Webinar"),
+    ("report", "Report")
+) 
+
+COMPANY_SIZE = (
+    ("1", "1-10"),
+    ("2", "11-50"),
+    ("3", "51-200"),
+    ("4", "201-500"),
+)
+
+INDUSTRY = (
+    ("agriculture", "Agriculture"),
+    ("banking_&_finance", "Banking & Finance"),
+    ("business_services_&_software", "Business Services & Software"),
+)
+
+JOB_ROLE = (
+    ("c_suite", "C-Suite"),
+    ("vp", "VP")
+)
+
+COUNTRY = (
+    ("united_states", "United States"),
+    ("afghanistan", "Afghanistan"),
+    ("albania", "Albania"),
+    ("algeria", "Algeria"),
+    ("american_samoa", "American Samoa")
+)
+
+
 class Subscribe(models.Model):
     email = models.EmailField(max_length=25)
 
@@ -87,11 +120,7 @@ class Product(models.Model):
         ordering = ["id"]
 
 
-CONTENT_TYPE = (
-    ("blog_post", "Blog Post"),
-    ("webinar", "Webinar"),
-    ("report", "Report")
-) 
+
 class Blog(models.Model):
     image = models.FileField(upload_to="blog")
     title = models.CharField(max_length=155)
@@ -103,3 +132,21 @@ class Blog(models.Model):
     
     class Meta :
         ordering = ["id"]
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    first_name = models.CharField(max_length=128)
+    last_name = models.CharField(max_length=128)
+    company = models.CharField(max_length=128)
+    company_size = models.CharField(max_length=128,choices=COMPANY_SIZE)
+    industry = models.CharField(max_length=128,choices=INDUSTRY)
+    jobe_role = models.CharField(max_length=128,choices=JOB_ROLE)
+    country = models.CharField(max_length=128,choices=COUNTRY)
+    user_agreement = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.first_name

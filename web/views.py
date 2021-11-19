@@ -3,6 +3,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
 from web.models import Blog, Contact, Feature, Marketing, Product, Review, Subscribe, Customers, Testimonial
+from web.forms import ContactForm
 
 
 def index(request):
@@ -15,6 +16,8 @@ def index(request):
     products = Product.objects.all()
     blogs = Blog.objects.all()
 
+    form = ContactForm()
+
     context = {
         "customers" : customers,
         "features" : features,
@@ -23,7 +26,8 @@ def index(request):
         "false_testimonials" : false_testimonials,
         "marketings" : marketings,
         "products" : products,
-        "blogs" :blogs
+        "blogs" : blogs,
+        "form" : form
     }
     
     return render(request,"index.html",context=context)

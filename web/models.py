@@ -45,9 +45,10 @@ class Subscribe(models.Model):
 
 class Customers(models.Model):
     image = models.FileField(upload_to="customers")
+    white_image = models.FileField(upload_to="customers",blank=True,null=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 

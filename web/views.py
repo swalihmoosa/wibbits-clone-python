@@ -64,45 +64,28 @@ def subscribe(request):
 
 
 def contact(request):
-    email = request.POST.get("email")
-    first_name = request.POST.get("first_name")
-    last_name = request.POST.get("last_name")
-    company = request.POST.get("company")
-    company_size = request.POST.get("company_size")
-    industry = request.POST.get("industry")
-    jobe_role = request.POST.get("jobe_role")
-    country = request.POST.get("country")
-    user_agreement = request.POST.get("user_agreement")
-    
-    if not Contact.objects.filter(email=email).exists() and email:
-        Contact.objects.create(
-            email = email,
-            first_name = first_name,
-            last_name = last_name,
-            company = company,
-            company_size = company_size,
-            industry = industry,
-            jobe_role = jobe_role,
-            country = country,
-            user_agreement = user_agreement
-        )
+    form = ContactForm(request.POST)
 
-        response_data = {
-            "status" : "success",
-            "title" : "Successfully Registered",
-            "message" : "You are Subscribed to the News Letter"
-        }
-    elif not email:
-        response_data = {
-            "status" : "error",
-            "title" : "Enter a Valid Email",
-            "message" : "You Enter a Invalid Email,Check the Email"
-        }
+    if form.is_valid():
+        if not Contact.objects.filter(email=request.POST.get('email')).exists():
+            form.save()
+
+            response_data = {
+                "status" : "success",
+                "title" : "Successfully Registered",
+                "message" : "You are Subscribed to the News Letter"
+            }
+        else:
+            response_data = {
+                "status" : "error",
+                "title" : "Already Registered",
+                "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
+            }
     else:
         response_data = {
-            "status" : "error",
-            "title" : "Already Registered",
-            "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
-        }
+                "status" : "error",
+                "title" : "Your Form is Not Valid",
+                "message" : "Your Form is Not Valid,Try again"
+            }
 
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")

@@ -10,6 +10,6 @@ urlpatterns = [
     path('',index,name="index"),
     path('subscribe',subscribe,name="subscribe"),
     path('contact',contact,name="contact"),
-    path('product',product,name="product")
+    path('product/<int:pk>',product,name="product")
 
 ]

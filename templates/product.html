@@ -3,29 +3,25 @@
 {% load static %}
 
 {% block content %}
-    <section id="product">
+    <section id="product" style="background: {{product.bg_color}};">
         <section class="wrapper">
             <a href="#" class="logo-badge">
-                <img src="{% static 'images/Wavi-icon.svg' %}" alt="" />
-                Wavi
+                <img src="{{product.logo.url}}" alt="" />
+                {{product.name}}
             </a>
-            <h1>Produce video at unprecedented scale with the power of automation</h1>
-            <p>Automatically transform existing text, data, and assets into professional videos with our AI video creator.</p>
+            <h1>{{product.title}}</h1>
+            <p>{{product.description}}</p>
             <a href="#" class="button">Get in Touch</a>
-            <img src="{% static 'images/product-hero-1.png' %}" alt="Hero Image" class="hero" />
+            <img src="{{product.hero_image.url}}" alt="Hero Image" class="hero" />
         </section>
     </section>
     <section id="inner-page-brands">
         <section class="wrapper">
             <h6>Leading brands trust Wibbitz for video</h6>
             <ul>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
+                {% for customer in customers %}
+                <li><a href="#"><img src="{{customer.image.url}}" alt="logo-birchbox" /></a></li>
+                {% endfor %}
             </ul>
         </section>
     </section>
